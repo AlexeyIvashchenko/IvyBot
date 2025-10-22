@@ -144,12 +144,12 @@ async def services_payment(message: Message):
 
 @dp.message(F.text == "📊 Примеры работ")
 async def examples(message: Message):
-    text = """
+st = [i for i in config.EXAMPLES["sites"]]
+    sites_text = "\n".join(f"- {site}" for site in st)
+    text = f"""
 Несколько проектов, выполненных через Айви 👇
 
-- https://example-site1.com
-- https://example-site2.com  
-- https://example-site3.com
+{sites_text}
 
 Нажав на кнопку "Примеры рекламы" вы увидите рекламные объявления для этих же проектов.
     """
@@ -863,4 +863,5 @@ async def main():
 
 
 if __name__ == "__main__":
+
     asyncio.run(main())
