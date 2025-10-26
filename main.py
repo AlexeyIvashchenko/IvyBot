@@ -511,7 +511,7 @@ async def process_final_payment(callback: CallbackQuery):
                 f"Для оплаты перейдите по ссылке:\n{payment.confirmation.confirmation_url}\n\n"
                 f"<i>После успешной оплаты нажмите кнопку '✅ Я оплатил'</i>",
                 # Теперь показываем кнопку "Я оплатил" только после нажатия оплаты
-                reply_markup=get_payment_keyboard(config.FINAL_AMOUNT, is_final=True, show_check_button=True)
+                reply_markup=get_payment_keyboard(config.FINAL_AMOUNT, is_final=True, show_check_button=False)
             )
         else:
             await callback.message.edit_text("❌ Ошибка создания платежа.")
@@ -865,4 +865,5 @@ async def main():
 if __name__ == "__main__":
 
     asyncio.run(main())
+
 
