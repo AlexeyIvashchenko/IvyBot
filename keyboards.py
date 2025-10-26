@@ -84,7 +84,6 @@ def get_payment_keyboard(amount, booking_date=None, is_final=False, show_check_b
             callback_data="pay_final"
         )
 
-    # Кнопка "Я оплатил" показывается только если show_check_button=True
     if show_check_button:
         builder.button(text="✅ Я оплатил", callback_data="check_payment")
 
@@ -118,4 +117,5 @@ def get_admin_delivery_keyboard(user_id, booking_date, is_final_paid=False):
         )
 
     builder.adjust(1)
+
     return builder.as_markup()
