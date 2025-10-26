@@ -38,8 +38,7 @@ class ReminderSystem:
                             f"• Рекламные объявления\n"
                             f"• Инструкцию по работе",
                             parse_mode="HTML",
-                            reply_markup=get_payment_keyboard(config.FINAL_AMOUNT, is_final=True,
-                                                              show_check_button=True)
+                            reply_markup=get_payment_keyboard(config.FINAL_AMOUNT, is_final=True, show_check_button=False)
                         )
                         logger.info(f"Напоминание о финальной оплате отправлено пользователю {user_id}")
                     else:
@@ -63,5 +62,6 @@ class ReminderSystem:
                 await self.send_booking_reminders(bot)
                 # Ждем 1 минуту чтобы не запускать повторно в течение часа
                 await asyncio.sleep(60)
+
 
             await asyncio.sleep(60)  # Проверяем каждую минуту
